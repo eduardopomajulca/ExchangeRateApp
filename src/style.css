@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@import 'primeicons/primeicons.css';
 
 html {
-    font-family: 'Calibri';
-    background-color: #4e2db9;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #6e46e6;
+}
+
+body {
+  min-width: min-content
 }
 
 @layer base {
@@ -10,4 +15,24 @@ html {
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
+}
+
+@theme {
+  --color-primary-100: #6e46e6;
+}
+
+.btn-primary {
+  @apply text-center bg-primary-100 text-white rounded-md h-[40px] mt-2;
+}
+
+.btn-exchange {
+  @apply w-[100px] text-center cursor-pointer;
+}
+
+.h1-white {
+  @apply text-white font-semibold text-4xl sm:text-5xl mb-1;
+}
+
+.h2-white {
+  @apply text-white text-xl sm:text-2xl
 }
