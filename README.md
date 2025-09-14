@@ -15,7 +15,7 @@ Ir a la carpeta raíz del proyecto y ejecutar el siguiente comando:
 npm run install
 ```
 
-## Agregar el archivo con las variables de entorno
+## 3. Agregar el archivo con las variables de entorno
 
 Dentro de la carpeta src se debe agregar el archivo .env con la siguiente variable y el valor correspondiente del API Key para la conexión con Firebase (en Netlify se manejan secrets para almacenar esta información):
 
@@ -23,7 +23,7 @@ Dentro de la carpeta src se debe agregar el archivo .env con la siguiente variab
 VITE_GOOGLE_API_KEY
 ```
 
-## 3. Ejecutar la aplicación
+## 4. Ejecutar la aplicación
 
 Dentro de la misma carpeta ejecutar el siguiente comando:
 ```
