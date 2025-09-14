@@ -1,5 +1,36 @@
-# Vue 3 + TypeScript + Vite
+# Exchange Rate App
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+La aplicación está construida sobre la herramienta Vite. Para iniciarla localmente se deben seguir los siguientes pasos:
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 1. Clonar el repositorio usando git
+
+```
+git clone https://github.com/eduardopomajulca/ExchangeRateApp.git
+```
+
+## 2. Instalar las dependencias del proyecto
+
+Ir a la carpeta raíz del proyecto y ejecutar el siguiente comando:
+```
+npm run install
+```
+
+## 3. Ejecutar la aplicación
+
+Dentro de la misma carpeta ejecutar el siguiente comando:
+```
+npm run dev
+```
+
+La línea de comandos devolverá el link local (Por default http://localhost:5173/) con el cual se podrá visualizar el sistema.
+
+## Anotaciones
+
+Se debe contar con git, node y npm instalados.
+
+Versiones:
+
+| Herramienta | Versión |
+|:-----|:---:|
+| node | 22.15.1 |
+| npm | 10.9.2 |
