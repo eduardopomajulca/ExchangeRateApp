@@ -34,3 +34,7 @@ Versiones:
 |:-----|:---:|
 | node | 22.15.1 |
 | npm | 10.9.2 |
+
+## Link de la aplicación desplegada en Netlify
+
+https://epl-exchangerateapp.netlify.app/
