@@ -15,7 +15,9 @@ const handleRateTypeSelected = (buySelected: boolean) => {
   buyRateTypeSelected.value = buySelected;
   const newRate = buySelected ? exchangeRateBuy.value : exchangeRateSell.value;
   currentRate.value = newRate;
-  secondAmount.value = buyRateTypeSelected.value ? (Number(firstAmount.value) * newRate).toFixed(2) : (Number(firstAmount.value) / newRate).toFixed(2);
+  secondAmount.value = buyRateTypeSelected.value ?
+    (Number(firstAmount.value) * newRate).toFixed(2) :
+    (Number(firstAmount.value) / newRate).toFixed(2);
 }
 
 const runOperations = () => {
@@ -44,12 +46,16 @@ watch(exchangeRateSell, (newVal) => {
 
 const firstAmountUpdated = (val: string) => {
   firstAmount.value = val;
-  secondAmount.value = buyRateTypeSelected.value ? (Number(val) * currentRate.value).toFixed(2) : (Number(val) / currentRate.value).toFixed(2);
+  secondAmount.value = buyRateTypeSelected.value ? 
+    (Number(val) * currentRate.value).toFixed(2) :
+    (Number(val) / currentRate.value).toFixed(2);
 }
 
 const secondAmountUpdated = (val: string) => {
   secondAmount.value = val;
-  firstAmount.value = buyRateTypeSelected.value ? (Number(val) / currentRate.value).toFixed(2) : (Number(val) * currentRate.value).toFixed(2);
+  firstAmount.value = buyRateTypeSelected.value ? 
+    (Number(val) / currentRate.value).toFixed(2) :
+    (Number(val) * currentRate.value).toFixed(2);
 }
 
 </script>
@@ -58,13 +64,19 @@ const secondAmountUpdated = (val: string) => {
   <div class="flex flex-col h-full">
     <div class="flex h-[80px] px-10">
       <div class="flex w-1/2 items-end justify-center">
-        <button :class="{ 'border-primary-100 border-b-1': buyRateTypeSelected }" class="btn-exchange" @click="handleRateTypeSelected(true)">
+        <button
+          :class="['btn-exchange', { 'border-primary-100 border-b-1': buyRateTypeSelected }]"
+          @click="handleRateTypeSelected(true)"
+        >
           <p :class="[buyRateTypeSelected ? 'text-primary-100' : 'text-gray-500', 'text-sm']">Dólar compra</p>
           <p :class="[buyRateTypeSelected ? 'text-primary-100' : 'text-gray-500', 'font-bold text-sm']">{{ exchangeRateBuy.toFixed(4) }}</p>
         </button>
       </div>
       <div class="flex w-1/2 items-end justify-center">
-        <button :class="{ 'border-primary-100 border-b-1': !buyRateTypeSelected }" class="btn-exchange" @click="handleRateTypeSelected(false)">
+        <button
+          :class="['btn-exchange', { 'border-primary-100 border-b-1': !buyRateTypeSelected }]"
+          @click="handleRateTypeSelected(false)"
+        >
           <p :class="[!buyRateTypeSelected ? 'text-primary-100' : 'text-gray-500', 'text-sm']">Dólar venta</p>
           <p :class="[!buyRateTypeSelected ? 'text-primary-100' : 'text-gray-500', 'font-bold text-sm']">{{ exchangeRateSell.toFixed(4) }}</p>
         </button>
@@ -74,11 +86,24 @@ const secondAmountUpdated = (val: string) => {
     <div class="h-full px-15 py-10">
       <div class="flex gap-5 flex-col">
         <div class="flex gap-5 flex-col relative">
-          <CurrencyTextfield :side-label="buyRateTypeSelected ? 'Dólares' : 'Soles'" :label="'Envías'" :symbol="buyRateTypeSelected ? '$' : 'S/'" :currencyValue="firstAmount" @update:currencyValue="firstAmountUpdated"/>
-          <div class="absolute self-center top-[35%] justify-self-center bg-primary-100 w-fit text-white rounded-4xl p-2.5 flex justify-center cursor-pointer" @click="handleRateTypeSelected(!buyRateTypeSelected)">
+          <CurrencyTextfield
+            :side-label="buyRateTypeSelected ? 'Dólares' : 'Soles'"
+            :label="'Envías'"
+            :symbol="buyRateTypeSelected ? '$' : 'S/'"
+            :currencyValue="firstAmount"
+            @update:currencyValue="firstAmountUpdated" />
+          <div
+            class="absolute self-center top-[35%] floating-icon-button"
+            @click="handleRateTypeSelected(!buyRateTypeSelected)"
+          >
             <i class="pi pi-sync" style="font-size: 1.1rem;"></i>
           </div>
-          <CurrencyTextfield :side-label="buyRateTypeSelected ? 'Soles' : 'Dólares'" :label="'Recibes'" :symbol="buyRateTypeSelected ? 'S/' : '$'" :currencyValue="secondAmount" @update:currencyValue="secondAmountUpdated"/>
+          <CurrencyTextfield
+            :side-label="buyRateTypeSelected ? 'Soles' : 'Dólares'"
+            :label="'Recibes'"
+            :symbol="buyRateTypeSelected ? 'S/' : '$'"
+            :currencyValue="secondAmount"
+            @update:currencyValue="secondAmountUpdated" />
         </div>
         <button class="w-full btn-primary" @click="runOperations()">
           Iniciar operación

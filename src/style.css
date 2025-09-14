@@ -34,5 +34,9 @@ body {
 }
 
 .h2-white {
-  @apply text-white text-xl sm:text-2xl
+  @apply text-white text-xl sm:text-2xl;
+}
+
+.floating-icon-button {
+  @apply bg-primary-100 w-fit text-white rounded-4xl p-2.5 flex justify-center cursor-pointer;
 }
