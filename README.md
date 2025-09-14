@@ -12,7 +12,7 @@ git clone https://github.com/eduardopomajulca/ExchangeRateApp.git
 
 Ir a la carpeta raíz del proyecto y ejecutar el siguiente comando:
 ```
-npm run install
+npm install
 ```
 
 ## 3. Agregar el archivo con las variables de entorno
